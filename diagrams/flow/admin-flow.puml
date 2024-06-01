@@ -1,0 +1,24 @@
+@startuml
+title : Recommendation Engine for (Cafeteria) - Admin
+
+start
+:Start Application;
+:Login/Authentication;
+
+if (Is Admin?) then (yes)
+  :Admin Main Menu;
+  :Actions;
+  :CRUD Menu Items;
+  :For each operation by admin,
+  a Notification is sent to
+  all users (Employees);
+  :Return to Admin Main Menu;
+  :Logout;
+else (no)
+  :Proceed to 
+  **Employee or Chef**
+  flow;
+endif
+
+stop
+@enduml

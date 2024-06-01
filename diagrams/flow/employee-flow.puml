@@ -1,0 +1,37 @@
+@startuml
+title : Recommendation Engine for (Cafeteria) - Employee
+
+start
+:Start Application;
+:Login/Authentication;
+
+if (Is Employee?) then (yes)
+  :Employee Main Menu;
+  if (Actions?) then (View Notification)
+    :View Notification;
+    :Respond to Notification;
+  else (Go to Feedback [Product Details])
+    :See
+    * Ratings and Feedbacks
+    * Give Feedback;
+    :Get all available food
+    items and see details;
+    if (Wants to give feedback) then (yes)
+      :Select any particular
+      food item;
+      :Provide feedback for 
+      selected food item;
+    else
+      :Go back;
+    endif
+  endif
+  :Return to **Employee** Main Menu;
+  :Logout;
+else (no)
+  :Proceed to
+  **Chef or Admin**
+  flow;
+endif
+
+stop
+@enduml

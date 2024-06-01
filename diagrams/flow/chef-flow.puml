@@ -1,0 +1,36 @@
+@startuml
+title : Recommendation Engine for (Cafeteria) - Chef
+
+start
+:Start Application;
+:Login/Authentication;
+
+if (Is Chef?) then (yes)
+  :Chef Main Menu;
+  if (Actions?) then (See Feedback [Product Details])
+    :Get all available food
+    items and see details;
+  else (Notify for food)
+    if (Notification Actions?) then (view)
+      :View all the Notification 
+      responses provided by users;
+    else (send)
+      :Get all available food
+      items and see details;
+      :Create Notification 
+      (By giving the choices for
+      next day food also after making
+      decision of food being made);
+      :Send Notification;
+    endif
+  endif
+  :Return to Chef Main Menu;
+  :Logout;
+else (no)
+  :Proceed to 
+  **Employee or Admin**
+  flow;
+endif
+
+stop
+@enduml

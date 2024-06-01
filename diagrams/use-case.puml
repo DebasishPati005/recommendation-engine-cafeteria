@@ -1,0 +1,61 @@
+@startuml
+title : Recommendation Engine for (Cafeteria) - Use Case Diagram
+
+skinparam actorStyle awesome
+
+skinparam actor {
+  BackgroundColor LightGreen
+  BorderColor Green
+  FontColor Green
+}
+
+actor Employee as E
+actor Chef as C
+actor Admin as A
+
+rectangle System {
+  rectangle Common {
+  (Login &\nAuthentication) as L
+  (Logout) as LO
+  }
+
+  rectangle Employee {
+    (View Notifications) as VN
+    (Respond to\n Notifications) as RN
+    (View Product Details\n and Feedbacks) as VP
+    (Give Feedback) as GF
+  }
+
+  rectangle Chef {
+    (View Product Details\n and Feedbacks) as VP_Chef
+    (View Notification\n Responses) as VNR
+    (Create\n Notifications) as CN
+    (Send\n Notifications) as SN
+  }
+
+  rectangle Admin {
+    (CRUD Menu Items) as CRUD
+    (Send Notifications) as SN_Admin
+  }
+
+  E --> L
+  E --> VN
+  E --> RN
+  E --> VP
+  E --> GF
+  E --> LO
+
+  C --> L
+  C --> VP_Chef
+  C --> VNR
+  C --> CN
+  C --> SN
+  C --> LO
+
+  A --> L
+  A --> CRUD
+  A --> SN_Admin
+  A --> LO
+}
+
+@enduml
