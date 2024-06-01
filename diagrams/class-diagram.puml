@@ -1,0 +1,88 @@
+@startuml
+title Recommendation Engine for Cafeteria - Class Diagram
+
+skinparam class {
+  BackgroundColor LightYellow
+  BorderColor Black
+  FontColor DarkBlue
+  ArrowColor DarkGreen
+  ClassBackgroundColor LightGreen
+  ClassBorderColor DarkGreen
+  ClassFontColor DarkGreen
+}
+
+class Server {
+  - socket: Socket
+  + createSocket(): void
+  + start(): void
+  + stop(): void
+}
+
+class User {
+  - id: number
+  - username: string
+  - password: string
+  + login(): void
+  + navigates(): void
+  + logout(): void
+}
+
+class Employee {
+  + viewNotifications(): void
+  + respondToNotifications(): void
+  + viewProductDetails(): void
+  + giveFeedback(): void
+}
+
+class Chef {
+  + viewProductDetails(): void
+  + viewNotificationResponses(): void
+  + createNotification(): void
+  + sendNotification(): void
+}
+
+class Admin {
+  + addFoodItem(): void
+  + updateFoodItem(): void
+  + deleteFoodItem(): void
+}
+
+class Notification {
+  - id: number
+  - message: string
+  - date: Date
+  + sendNotification(): void
+  + viewResponses(): void
+}
+
+class FoodItem {
+  - id: number
+  - name: string
+  - description: string
+  - price: number
+  - availability: boolean
+  + updateAvailability(): void
+}
+
+class Feedback {
+  - id: number
+  - comments: string
+  - rating: number
+  - date: Date
+  + provideFeedback(): void
+  + getFeedbacks(): FoodItems
+}
+
+User *-- Server
+Employee *-- User
+Chef *-- User
+Admin *-- User
+
+Employee --> Notification: view/respond
+Employee --> Feedback: provide/view
+Chef --> Notification: create/send
+Chef --> Feedback: view
+Admin --> FoodItem: CRUD\n Operations
+Notification --> FoodItem
+Feedback --> FoodItem
+@enduml

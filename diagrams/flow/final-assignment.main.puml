@@ -1,0 +1,72 @@
+  @startuml
+  title : Recommendation Engine for (Cafeteria)
+
+  legend
+  |== Common Terms ==
+  | **N_F**  - Notification
+  | **F_B**  - Feedback
+  | **CRUD** - Create, Read, Update, Delete
+  endlegend
+
+  start
+  :Start Application;
+  :Login/Authentication;
+  
+  if (Is Employee?) then (yes)
+    :Employee Main Menu;
+    if (Actions?) then (View **N_F**)
+      :View **N_F**;
+      :Respond to **N_F**;
+    else (Go to **F_B**[Product Details])
+      :See
+      * Ratings and Feedbacks
+      * Give **F_B**;
+      :Get all available food
+      items and see details;
+      if (Wants to give feedback) then (yes)
+        :Selects any particualr 
+        food item
+        sees the details;
+        :Provide the feedback of
+        selected food item;
+      else
+        :Go back;
+      endif
+    endif
+      :Return to Employee Main Menu;
+  else (no)
+    if (Is Chef?) then (yes)
+      :Chef Main Menu;
+      if (Actions?) then (See **F_B**[Product Details])
+      :Get all available food
+      items and see details;
+      else (Notify for food)
+        if (**N_F** Actions?) then (view)
+          :View **N_F** Responses 
+          provided by user;
+        else (send)
+          :Get all available food
+          items and see details;
+          :Create **N_F**
+          (By giving the choices
+          for next day food also
+          after making decission of
+          food being made.);
+          :Send **N_F**;
+        endif
+      endif
+      else (no [Is a Admin])
+          :Admin Main Menu;
+          :Actions;
+          :**CRUD** Menu Items;
+          :For each operation by
+          admin a **N_F**
+          is sent to all
+          the users(Employees);
+      endif
+        :Returns to Main menu;
+  endif
+  
+  :Logout;
+  stop
+  @enduml
