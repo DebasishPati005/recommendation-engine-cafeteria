@@ -1,0 +1,19 @@
+{
+  "name": "recommend-engine-client",
+  "version": "1.0.0",
+  "description": "Client Of Recommend Engine for Cafeteria",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DebasishPati005/recommendation-engine-cafeteria.git"
+  },
+  "author": "Mr. Deba",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DebasishPati005/recommendation-engine-cafeteria/issues"
+  },
+  "homepage": "https://github.com/DebasishPati005/recommendation-engine-cafeteria#readme"
+}
