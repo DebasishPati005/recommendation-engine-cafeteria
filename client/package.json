@@ -4,7 +4,8 @@
   "description": "Client Of Recommend Engine for Cafeteria",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "npx nodemon --exec ts-node index.ts"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,16 @@
   "bugs": {
     "url": "https://github.com/DebasishPati005/recommendation-engine-cafeteria/issues"
   },
-  "homepage": "https://github.com/DebasishPati005/recommendation-engine-cafeteria#readme"
+  "homepage": "https://github.com/DebasishPati005/recommendation-engine-cafeteria#readme",
+  "devDependencies": {
+    "@types/node": "^20.13.0",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
+    "@typescript-eslint/parser": "^7.11.0",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.0",
+    "nodemon": "^3.1.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
 }
